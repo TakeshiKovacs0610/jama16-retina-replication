@@ -1,3 +1,31 @@
+"""
+This script provides a graphical user interface (GUI) tool for manually grading images to determine 
+whether they are gradable or not. It is a preprocessing utility to ensure only high-quality images 
+are used in the subsequent training and evaluation of the machine learning model.
+
+Purpose:
+- Manual Image Grading: Allows users to review and grade images manually for quality control.
+- Quality Control: Ensures that only high-quality, gradable images are included in the dataset 
+  for training and evaluation.
+- User Interaction: Provides a GUI for loading a directory of images, viewing each image, 
+  and marking them as either "Gradable" or "Not Gradable."
+- Data Organization: Saves the grading results in a CSV file and copies gradable images 
+  to a specific directory for further use.
+
+Workflow:
+1. Load Images: Users select a directory containing images to be graded.
+2. Display Images: Images are displayed one by one in the GUI.
+3. Grade Images: Users mark each image as "Gradable" or "Not Gradable."
+4. Save Results: The results are saved to a CSV file, and gradable images are copied to 
+   a designated directory.
+5. Continue Later: Users can save their progress and continue grading at a later time.
+
+By using this tool, you can ensure that the images used for training your model are of high quality, 
+which can improve the performance and reliability of your machine learning model.
+
+This script is not directly related to model training but serves as an essential preprocessing 
+step to maintain the quality of the dataset.
+"""
 import PIL.Image
 from tkinter import *
 from tkinter import filedialog

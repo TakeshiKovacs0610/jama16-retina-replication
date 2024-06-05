@@ -1,3 +1,18 @@
+"""
+This script preprocesses the EyePACS dataset for diabetic retinopathy detection by performing the following steps:
+
+1. Argument Parsing: Parses the command-line argument to specify the directory where the EyePACS dataset resides.
+2. Directory Setup: Creates directories for each diabetic retinopathy grade (0 to 4) if they do not already exist. It also creates a temporary directory for storing intermediate preprocessing results.
+3. Data Preprocessing: Reads the CSV files containing the image labels (trainLabels.csv and testLabels.csv). For each image:
+   - Finds the image path using a glob pattern.
+   - Uses the `resize_and_center_fundus` function to resize the fundus to 299 pixels in diameter and center it.
+   - Displays a status message indicating the progress.
+   - If preprocessing is successful, moves the processed image to the appropriate grade directory. If it fails, logs the image as failed.
+4. Cleanup: Deletes the temporary directory and prints a summary of images that could not be processed.
+
+This script ensures that only preprocessed and properly organized images are used for training and evaluating the diabetic retinopathy detection model.
+"""
+
 import argparse
 import csv
 import sys
