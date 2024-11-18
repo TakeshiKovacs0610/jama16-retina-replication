@@ -1,6 +1,6 @@
 # PreTraining Guide
 
-This guide provides step-by-step instructions to use the provided code files to generate results and model weights. It is designed to help you set up the dataset, run the code, and reproduce the results with minimal effort.
+This guide provides step-by-step instructions to use the provided code files to generate results and model weights for the PreTraining Phase. Datasets have been uploaded on the Nirvana Server 
 
 ## Table of Contents
 
@@ -76,15 +76,14 @@ Use the `pretrained_weights_2.py` script to train models with pretrained weights
 python pretrained_weights_2.py \
     -t ../data/kaggle_data/train/train_dataset_corrected.h5 \
     -v ../data/kaggle_data/train/validation_dataset_corrected.h5 \
-    -sm model_weights/pretrained/model1 \
-    -ss logs/pretrained/model1 \
-    -log_dir logs/pretrained/model1
+    -sm model_weights/pretrained \
+    -ss logs/pretrained \
+    -log_dir logs/pretrained
 ```
 
 **Notes:**
 
-- Repeat the command for `model1` to `model10`, changing the `-sm`, `-ss`, and `-log_dir` accordingly.
-- The script trains the model and saves the weights and logs.
+- The script trains the 10 models and saves the weights and logs.
 
 ### Training without Weight Initialization
 
@@ -96,14 +95,13 @@ Use the `random_initialization_2.py` script to train models from scratch.
 python random_initialization_2.py \
     -t ../data/kaggle_data/train/train_dataset_corrected.h5 \
     -v ../data/kaggle_data/train/validation_dataset_corrected.h5 \
-    -sm model_weights/scratch/model1 \
-    -ss logs/scratch/model1 \
-    -log_dir logs/scratch/model1
+    -sm model_weights/scratch \
+    -ss logs/scratch \
+    -log_dir logs/scratch
 ```
 
 **Notes:**
 
-- Similarly, repeat for `model1` to `model10`.
 - Adjust folder names to prevent overwriting.
 
 ## Evaluating the Models
@@ -119,7 +117,6 @@ python evaluate_pretrained_3.py
 
 **Notes:**
 
-- Replace `model1` with `model2`, ..., `model10` for evaluating other models
 - Modify the script to load the correct model architecture matching your training setup
 - Update the model loading section in `evaluate_pretrained_3.py` to match the architecture used in training
 - The script outputs a CSV file with predictions for each model
@@ -140,20 +137,20 @@ python ensemble_4.py \
 
 **Notes:**
 
-- The `--input_dir` argument specifies the directory containing all prediction CSV files.
+- The `--csv_dir` argument specifies the directory containing all prediction CSV files.
 - The script computes the ensemble predictions and saves the final results to the file specified by `--output_file`.
 
 ## Recommended Folder Structure
 
 ```
 jama16-retina-replication/
-    PreTraining/
-        create_hdf5_1.py
-        pretrained_weights_2.py
-        random_initialization_2.py
-        evaluate_pretrained_3.py
-        ensemble_4.py
-        Readme_Pretraining.md
+   
+    create_hdf5_1.py
+    pretrained_weights_2.py
+    random_initialization_2.py
+    evaluate_pretrained_3.py
+    ensemble_4.py
+    Readme_Pretraining.md
     data/
         kaggle_data/
             train/
