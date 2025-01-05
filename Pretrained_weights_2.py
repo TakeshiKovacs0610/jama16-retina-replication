@@ -5,7 +5,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from torchvision import transforms, models
 from sklearn.metrics import confusion_matrix, roc_auc_score, accuracy_score
-from PreTraining.jama_train_dataloader_0 import get_hdf5_dataloader
+from jama_train_dataloader_0 import get_hdf5_dataloader
 import os
 import argparse
 import random

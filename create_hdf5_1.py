@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 from sklearn.model_selection import train_test_split
-from PreTraining.preprocess_0 import resize_and_center_fundus
+from preprocess_0 import resize_and_center_fundus
 
 # Define root directories
 train_dir = '../data/kaggle_data/train/'
